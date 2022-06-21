@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wetterstationen Tirol Beispiel</title>
+    <title>Moordatensatz</title>
 
     <!-- Stationsicon als favicon -->
     <link rel="shortcut icon" href="icons/wifi.png" type="image/png">
@@ -27,11 +27,9 @@
     <!-- eigene Stile und Hauptskript -->
     <link rel="stylesheet" href="main.css">
     <script defer src="main.js"></script>
-    <script defer src="colors.js"></script>
+    
 
-    <!-- Rainviewer Plugin einbauen -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css" />
-    <script src="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.js"></script>
+    
 </head>
 
 <body>
@@ -39,21 +37,16 @@
         <header>
             <div>
 
-                <h2><i class="fa-solid fa-cloud-sun-rain"></i> Wetterstationen Tirol Beispiel</h2>
+                <h2><i class="fa-solid fa-cloud-sun-rain"></i> Moore und Torfkörper unter Landwirtschaft in Tirol </h2>
             </div>
-            <nav>
-                <i class="fab fa-github"></i> <a href="https://github.com/webmapping/aws-tirol">Github</a>
-            </nav>
+           
         </header>
         <article>
             <div id="map"></div>
         </article>
         <footer>
             <strong>Datenquellen:</strong>
-            <nav>
-                <a href="https://lawinen.report/">Lawinen.report</a> |
-                <a href="https://www.data.gv.at/katalog/dataset/bb43170b-30fb-48aa-893f-51c60d27056f">Wetterstationsdaten Tirol</a>
-            </nav>
+            
         </footer>
     </main>
 </body>

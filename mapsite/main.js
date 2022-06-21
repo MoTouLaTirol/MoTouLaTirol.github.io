@@ -6,18 +6,11 @@ let innsbruck = {
     zoom: 11
 };
 
-// WMTS Hintergrundlayer von https://lawinen.report (CC BY avalanche.report) als Startlayer
-let startLayer = L.tileLayer("https://static.avalanche.report/tms/{z}/{x}/{y}.webp", {
-    attribution: '&copy; <a href="https://lawinen.report">CC BY avalanche.report</a>'
-})
+let startLayer = L.tileLayer.provider("BasemapAT.orthofoto");
 
 // Overlays Objekt für die thematischen Layer
 let overlays = {
-    stations: L.featureGroup(),
-    temperature: L.featureGroup(),
-    humidity: L.featureGroup(),
-    snowheight: L.featureGroup(),
-    wind: L.featureGroup(),
+    Moore: L.featureGroup(),
 };
 
 // Karte initialisieren
@@ -31,14 +24,10 @@ let map = L.map("map", {
 
 // Layer control mit WMTS Hintergründen und Overlays
 let layerControl = L.control.layers({
-    "Relief avalanche.report": startLayer,
-    "Esri World Imagery": L.tileLayer.provider("Esri.WorldImagery"),
+    "Orthofoto": startLayer,
+    "Höhenmodell": L.tileLayer.provider("BasemapAT.terrain")
 }, {
-    "Wetterstationen": overlays.stations,
-    "Temperatur": overlays.temperature,
-    "Relative Feuchtigkeit": overlays.humidity,
-    "Schneehöhe": overlays.snowheight,
-    "Wind": overlays.wind
+    "Moore": overlays.Moore,
 }).addTo(map);
 
 // Layer control ausklappen
@@ -52,44 +41,30 @@ L.control.scale({
 // Fullscreen control
 L.control.fullscreen().addTo(map);
 
-//Diesen Layer beim Laden anzeigen
-overlays.temperature.addTo(map);
 
-//Farben nach Wert und Schwellen ermitteln 
-let getColor = function (value, ramp) {
-    console.log(value, ramp)
-    for (let rule of ramp) {
-        console.log(rule)
-        if (value >= rule.min && value < rule.max) {
-            return rule.color;
-        }
-    }
-};
+// Moore in die Karte einfügen
 
-// Wetterstationen mit Icons und Popups implementieren
-let drawStations = function (geojson) {
+async function loadMoore(url) {
+    let response = await fetch(url);
+    let geojson = await response.json();
+    //console.log(geojson);
 
     L.geoJSON(geojson, {
-        pointToLayer: function (geoJsonPoint, latlng) {
-            //console.log(geoJsonPoint.properties.name);
-            let popup = `
-            <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]} m ü. NN)
-        
-             `;
-
-            return L.marker(latlng, {
-                icon: L.icon({
-                    iconUrl: `icons/wifi.png`,
-                    iconAnchor: [16, 37],
-                    popupAnchor: [0, -37]
-                })
-
-            }).bindPopup(popup);
+        style: function (feature) {
+            return {
+                color: "#F012BE"
+            }
         }
 
-    }).addTo(overlays.stations);
+    }).addTo(overlays.Moore);
 }
 
+loadMoore("moordaten.json")
+    
+
+
+
+/*
 //Temperaturen einladen 
 let drawTemperature = function (geojson) {
 
@@ -260,3 +235,5 @@ async function loadData(url) {
 }
 
 loadData("https://static.avalanche.report/weather_stations/stations.geojson");
+
+*/
