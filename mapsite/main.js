@@ -25,7 +25,8 @@ let map = L.map("map", {
 // Layer control mit WMTS Hintergründen und Overlays
 let layerControl = L.control.layers({
     "Orthofoto": startLayer,
-    "Höhenmodell": L.tileLayer.provider("BasemapAT.terrain")
+    "Geländemodell": L.tileLayer.provider("BasemapAT.terrain"),
+    "Basemap Surface": L.tileLayer.provider("BasemapAT.surface"),
 }, {
     "Moore": overlays.Moore,
 }).addTo(map);
