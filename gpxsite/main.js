@@ -74,10 +74,10 @@ L.control.fullscreen().addTo(map);
 overlays.gpx.addTo(map);
 
 // GPX Track Layer implementieren
-let gpxTrack = new L.GPX("../data/22.gpx", {
+let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
     async: true,
     marker_options: {
-        startIconUrl: 'icons/start.png',
+        startIconUrl: 'icons/start.png', //Hier andere Icons hernehmen weil Start und Ziel am gleichen Punkt 
         endIconUrl: 'icons/finish.png',
         shadowUrl: null,
         iconSize: [32,37],

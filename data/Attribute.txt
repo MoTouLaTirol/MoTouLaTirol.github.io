@@ -1,0 +1,21 @@
+Attribute
+
+ID_KF 
+ID_AF
+KLAF
+ABSF
+WZ_GBL
+WZ_1
+WZ_2_AF
+Hinweise_A: Str, Strasse; Bgm, Bergmahd(?); LNH ?
+Neigung_AF: Ausrichtung 
+Neig_1_AF
+Neig_2_AF
+Bodentyp: UM, Übergagnsmoor; M, Bodentyp Moor; HM, Hochmoor; UM, Übergangsmoor; NM, Niedermoor
+Kulturart: Gr, Grünland; GrW, Grünland-Wiese; GrStr, Grünland-Streu; GrHu, Grünland-Hutweide; GrBgm, Grünland-Bergmahd
+Bodenart: --> Mo wurde ausewählt 
+Zustand: 1 - günstigste, 4 - ungünstigste 
+Klimastufe: [KLIMA], a günstigeste, b ungünstigste 
+Wasserstufe: 1, beste; 2, gute; 3, feucht/trocken; 4, sehr feucht/trocken; 5, extrem nass(sumpfig)/trocken
+
+Höhe Torfkörper??
