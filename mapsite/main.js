@@ -1,280 +1,239 @@
-/* OGD Wien Beispiel */
-/*
-let stephansdom = {
-    lat: 48.208493,
-    lng: 16.373118,
-    title: "Stephansdom"
-}*/
+/* Wetterstationen Tirol Beispiel */
 
-let startLayer = L.tileLayer.provider("BasemapAT.basemap")
+let innsbruck = {
+    lat: 47.267222,
+    lng: 11.392778,
+    zoom: 11
+};
+
+let startLayer = L.tileLayer.provider("BasemapAT.orthofoto");
+
+// Overlays Objekt für die thematischen Layer
+let overlays = {
+    Moore: L.featureGroup(),
+};
+
+// Karte initialisieren
 let map = L.map("map", {
-    center: [stephansdom.lat, stephansdom.lng],
-    zoom: 14,
+    center: [innsbruck.lat, innsbruck.lng],
+    zoom: innsbruck.zoom,
     layers: [
         startLayer
-    ]
-})
+    ],
+});
 
+// Layer control mit WMTS Hintergründen und Overlays
 let layerControl = L.control.layers({
-    "BasemapAT Grau": startLayer,
-    "Basemap Standard": L.tileLayer.provider("BasemapAT.grau"),
-    "Basemap Terrain": L.tileLayer.provider("BasemapAT.terrain"),
-    "Basemap Surface": L.tileLayer.provider("BasemapAT.surface"),
-    "Basemap Beschriftung": L.tileLayer.provider("BasemapAT.overlay"),
-    "Basemap Orthofoto": L.tileLayer.provider("BasemapAT.orthofoto"),
-    "Basemap Orthofoto mit Beschriftung": L.layerGroup([L.tileLayer.provider("BasemapAT.orthofoto"),
-        L.tileLayer.provider("BasemapAT.overlay")
-    ])
-}).addTo(map)
+    "Orthofoto": startLayer,
+    "Höhenmodell": L.tileLayer.provider("BasemapAT.terrain")
+}, {
+    "Moore": overlays.Moore,
+}).addTo(map);
 
-/*
-let sightLayer = L.featureGroup();
+// Layer control ausklappen
+layerControl.expand();
 
-layerControl.addOverlay(sightLayer, "Sehenswürdigkeiten");
-
-let mrk = L.marker([stephansdom.lat, stephansdom.lng]).addTo(sightLayer)
-
-sightLayer.addTo(map);
-*/
-
+// Maßstab control
 L.control.scale({
     imperial: false
 }).addTo(map);
 
-L.control.fullscreen().addTo(map)
+// Fullscreen control
+L.control.fullscreen().addTo(map);
 
-var miniMap = new L.Control.MiniMap(
-    L.tileLayer.provider("BasemapAT.grau"), {
-        toggleDisplay: true
-    }
-).addTo(map);
 
-// async heißt code läuft weiter bis Funktion fertig ist
-//Sehenswüdigkeiten
-async function loadSites(url) {
+// Moore in die Karte einfügen
+
+async function loadMoore(url) {
     let response = await fetch(url);
-    let geojson = await response.json(url)
+    let geojson = await response.json();
     //console.log(geojson);
 
-    let overlay = L.featureGroup();
-
-    layerControl.addOverlay(overlay, "Sehenswürdigkeiten");
-    overlay.addTo(map);
-
     L.geoJSON(geojson, {
-        pointToLayer: function (geoJsonPoint, latlng) {
-            //L.marker(latlng).addTo(map)
-            let popup = `
-            <img src="${geoJsonPoint.properties.THUMBNAIL}"
-            alt=""><br>   
-            <strong>${geoJsonPoint.properties.NAME}</strong>
-            <hr>
-            Adresse: ${geoJsonPoint.properties.ADRESSE}<br>
-            <a href="${geoJsonPoint.properties.WEITERE_INF}
-            ">Weblink</a>
-            `;
-            return L.marker(latlng, {
-                icon: L.icon({
-                    iconUrl: "icons/photo.png",
-                    iconAnchor: [16, 37],
-                    popupAnchor: [0, -37]
-                })
-            }).bindPopup(popup);
-        }
-    }).addTo(overlay);
-}
-
-//Bishaltestellen
-async function loadStops(url) {
-    let response = await fetch(url);
-    let geojson = await response.json(url)
-    //console.log(geojson);
-
-    let overlay = L.featureGroup();
-
-    layerControl.addOverlay(overlay, "Haltestellen Vienna Sightseeing");
-    overlay.addTo(map);
-
-    L.geoJSON(geojson, {
-        pointToLayer: function (geoJsonPoint, latlng) {
-            //L.marker(latlng).addTo(map)
-            let popup = `
-            <strong>${geoJsonPoint.properties.LINE_NAME}</strong><br>
-            Station ${geoJsonPoint.properties.STAT_NAME}
-            `;
-            return L.marker(latlng, {
-                icon: L.icon({
-                    iconUrl: `icons/bus_${geoJsonPoint.properties.LINE_ID}.png`,
-                    iconAnchor: [16, 37],
-                    popupAnchor: [0, -37]
-                })
-            }).bindPopup(popup);
-        }
-    }).addTo(overlay);
-}
-
-
-//Buslinien
-async function loadLines(url) {
-    let response = await fetch(url);
-    let geojson = await response.json(url)
-    //console.log(geojson);
-
-    let overlay = L.featureGroup();
-
-    layerControl.addOverlay(overlay, "Liniennetz Vienna Sightseeing");
-    overlay.addTo(map);
-
-    L.geoJSON(geojson, {
-        style: function(feature){
-            //Farben von clrs.cc 
-            let colors = {
-                "Red Line": "#FF4136",
-                "Yellow Line": "#FFDC00",
-                "Blue Line": "#0074D9",
-                "Green Line": "#2ECC40",
-                "Grey Line": "#AAAAAA",
-                "Orange Line": "#FF851B"
-            };
+        style: function (feature) {
             return {
-                color: `${colors[feature.properties.LINE_NAME]}`,
-                //Dicke 
-                weight: 4,
-                //gestrichelt 
-                dashArray: [15,7]
+                color: "#F012BE"
             }
         }
-    }).bindPopup(function (layer) {
-        return `
-            <h4>${layer.feature.properties.LINE_NAME}</h4>
-            von: ${layer.feature.properties.FROM_NAME}
-            <br>
-            nach:${layer.feature.properties.TO_NAME}
-        `;
-        //return layer.feature.properties.LINE_NAME;
-    }).addTo(overlay);
+
+    }).addTo(overlays.Moore);
 }
 
-//Fußgängerzonen
-async function loadZones(url) {
-    let response = await fetch(url);
-    let geojson = await response.json(url)
-    //console.log(geojson);
+loadMoore("moordaten.json")
+    
 
-    let overlay = L.featureGroup();
 
-    layerControl.addOverlay(overlay, "Fußgängerzonen");
-    overlay.addTo(map);
+
+/*
+//Temperaturen einladen 
+let drawTemperature = function (geojson) {
 
     L.geoJSON(geojson, {
-        style: function(feature){
-            return {
-                color: "#F012BE",
-                opacity: 0.1,
-                //Fläche füllen 
-                fill: true,
-                //Transparenz von Füllung 
-                fillOpacity: 0.1
-            }}
-        }).bindPopup(function (layer) {
-        return `
-            <h4>${layer.feature.properties.ADRESSE}</h4>
-            Zeitraum: <br>
-             ${layer.feature.properties.ZEITRAUM || ""}
-            <br>
-            ausgenommen: <br> ${layer.feature.properties.AUSN_TEXT || ""}
-        `;
-        //return layer.feature.properties.LINE_NAME;
-    }).addTo(overlay);
-}
-
-//Hotels und Unterkünfte
-async function loadHotels(url) {
-    let response = await fetch(url);
-    let geojson = await response.json(url)
-    
-    //Hotels nach namen sortieren
-    geojson.features.sort(function(a ,b) {
-        return a.properties.BETRIEB.toLowerCase() > b.properties.BETRIEB
-    })
-
-    let overlay = L.markerClusterGroup({
-        disableClusteringAtZoom: 17
-    });
-
-    layerControl.addOverlay(overlay, "Hotels und Unterkünfte");
-    overlay.addTo(map);
-
-    let hotelsLayer = L.geoJSON(geojson, {
-        pointToLayer: function (geoJsonPoint, latlng) {
-            //L.marker(latlng).addTo(map)
-            let searchList = document.querySelector("#searchList");
-            searchList.innerHTML += `<option value="${geoJsonPoint.properties.BETRIEB}"></option>`;
-            //console.log(document.querySelector("#searchList").innerHTML)
-            
-            let popup = `
-               
-            <strong>${geoJsonPoint.properties.BETRIEB}</strong>
-            <hr>
-            Betriebsart: ${geoJsonPoint.properties.BETRIEBSART_TXT}<br>
-            Kategorie: ${geoJsonPoint.properties.KATEGORIE_TXT}<br>
-            Adresse: ${geoJsonPoint.properties.ADRESSE}<br>
-            Telefonnummer: ${geoJsonPoint.properties.KONTAKT_TEL}<br>
-            <a href="${geoJsonPoint.properties.KONTAKT_EMAIL}
-            ">EMAIL-Adresse</a><br>
-            <a href="mailto:${geoJsonPoint.properties.WEBLINK1}
-            ">Website</a>
-            `;
-            if (geoJsonPoint.properties.BETRIEBSART == "H") {
-                return L.marker(latlng, {
-                    icon: L.icon({
-                        iconUrl: "icons/hotel_0star.png",
-                        iconAnchor: [16, 37],
-                        popupAnchor: [0, -37]
-                    })
-                }).bindPopup(popup)
-            } else if (geoJsonPoint.properties.BETRIEBSART == "P") {
-                return L.marker(latlng, {
-                    icon: L.icon({
-                        iconUrl: "icons/lodging_0star.png",
-                        iconAnchor: [16, 37],
-                        popupAnchor: [0, -37]
-                    })
-                }).bindPopup(popup)
-            } else if (geoJsonPoint.properties.BETRIEBSART == "A") {
-                return L.marker(latlng, {
-                    icon: L.icon({
-                        iconUrl: "icons/apartment-2.png",
-                        iconAnchor: [16, 37],
-                        popupAnchor: [0, -37]
-                    })
-                }).bindPopup(popup)
-            };
-        }
-    }).addTo(overlay);
-
-    let form = document.querySelector("#searchForm");
-    
-    form.suchen.onclick = function() {
-        console.log(form.hotel.value);
-        hotelsLayer.eachLayer(function(marker){
-            //console.log(marker)
-            //console.log(marker.getLatLng())
-            //console.log(marker.getPopup())
-            //console.log(marker.feature.properties.BETRIEB)
-
-            if (form.hotel.value == marker.feature.properties.BETRIEB) {
-                console.log(marker.getLatLng())
-                map.setView(marker.getLatLng(), 17)
-                marker.openPopup();
+        filter: function (geoJsonPoint) {
+            if (geoJsonPoint.properties.LT > -50 && geoJsonPoint.properties.LT < 50) {
+                return true;
             }
-        })
-    }
+
+        },
+
+        pointToLayer: function (geoJsonPoint, latlng) {
+            //console.log(geoJsonPoint.properties.name);
+            let popup = `
+            <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]} m ü. NN)
+        
+             `;
+
+            let color = getColor(
+                geoJsonPoint.properties.LT,
+                COLORS.temperature
+            );
+            // L.marker(latlng).addTo(map);
+            return L.marker(latlng, {
+                icon: L.divIcon({
+                    className: "aws-div-icon",
+                    html: `<span style="background-color:${color}">${geoJsonPoint.properties.LT.toFixed(1)}°C</span>`
+                })
+
+            }).bindPopup(popup);
+        }
+
+
+    }).addTo(overlays.temperature);
+}
+
+//Schneehöhe 
+let drawSnowheight = function (geojson) {
+
+    L.geoJSON(geojson, {
+        filter: function (geoJsonPoint) {
+            if (geoJsonPoint.properties.HS > 0 && geoJsonPoint.properties.LT < 1000) {
+                return true;
+            }
+
+        },
+
+        pointToLayer: function (geoJsonPoint, latlng) {
+            //console.log(geoJsonPoint.properties.name);
+            let popup = `
+            <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]})
+        
+             `;
+
+            let color = getColor(
+                geoJsonPoint.properties.HS,
+                COLORS.snow_height
+            );
+            // L.marker(latlng).addTo(map);
+            return L.marker(latlng, {
+                icon: L.divIcon({
+                    className: "aws-div-icon",
+                    html: `<span style="background-color:${color}">${geoJsonPoint.properties.HS.toFixed(1)}cm</span>`
+                })
+
+            }).bindPopup(popup);
+        }
+
+
+    }).addTo(overlays.snowheight);
+}
+
+//Windgeschwindigkeit
+let drawWind = function (geojson) {
+
+    L.geoJSON(geojson, {
+        filter: function (geoJsonPoint) {
+            if (geoJsonPoint.properties.WG > 0 && geoJsonPoint.properties.WG < 300 && geoJsonPoint.properties.WR >= 0 && geoJsonPoint.properties.WR <= 360) {
+                return true;
+            }
+        },
+        pointToLayer: function (geoJsonPoint, latlng) {
+            //console.log(geoJsonPoint.properties.name);
+            let popup = `
+            <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]} m ü. NN)
+        
+             `;
+            let color = getColor(
+                geoJsonPoint.properties.WG,
+                COLORS.wind
+            );
+            //L.marker(latlng).addTo(map);
+            let deg = geoJsonPoint.properties.WR;
+            //console.log(deg);
+
+            return L.marker(latlng, {
+                icon: L.divIcon({
+                    className: "aws-div-icon",
+                    html: `<span style="background-color:${color}; transform: rotate(${deg}deg)"><i class="fa-solid fa-circle-arrow-up"></i>${geoJsonPoint.properties.WG.toFixed(1)}km/h</span>`
+                })
+
+            }).bindPopup(popup);
+        }
+
+    }).addTo(overlays.wind);
+}
+
+
+
+//relative Luftfeuchtigkeit
+let drawHumidity = function (geojson) {
+
+    L.geoJSON(geojson, {
+        filter: function (geoJsonPoint) {
+            if (geoJsonPoint.properties.RH > 0 && geoJsonPoint.properties.RH < 101) {
+                return true;
+            }
+        },
+        pointToLayer: function (geoJsonPoint, latlng) {
+            //console.log(geoJsonPoint.properties.name);
+            let popup = `
+            <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]} m ü. NN)
+        
+             `;
+            let color = getColor(
+                geoJsonPoint.properties.RH,
+                COLORS.humidity
+            );
+            //L.marker(latlng).addTo(map);
+            let deg = geoJsonPoint.properties.RH;
+            //console.log(deg);
+
+            return L.marker(latlng, {
+                icon: L.divIcon({
+                    className: "aws-div-icon",
+                    html: `<span style="background-color:${color}">${geoJsonPoint.properties.RH.toFixed(1)}%</span>`
+                })
+
+            }).bindPopup(popup);
+        }
+
+    }).addTo(overlays.humidity);
+}
+
+// Rainviewer
+L.control.rainviewer({
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Play/Stop',
+    prevButtonText: '<',
+    positionSliderLabelText: "Hour:",
+    opacitySliderLabelText: "Opacity:",
+    animationInterval: 500,
+    opacity: 0.5
+}).addTo(map);
+
+// Wetterstationen
+async function loadData(url) {
+    let response = await fetch(url);
+    let geojson = await response.json();
+
+    drawStations(geojson);
+    drawTemperature(geojson);
+    drawSnowheight(geojson);
+    drawWind(geojson);
+    drawHumidity(geojson);
 
 }
 
-loadSites("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SEHENSWUERDIGOGD&srsName=EPSG:4326&outputFormat=json")
-loadStops("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKHTSVSLOGD&srsName=EPSG:4326&outputFormat=json")
-loadLines("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKLINIEVSLOGD&srsName=EPSG:4326&outputFormat=json")
-loadZones("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FUSSGEHERZONEOGD&srsName=EPSG:4326&outputFormat=json")
-loadHotels("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UNTERKUNFTOGD&srsName=EPSG:4326&outputFormat=json")
+loadData("https://static.avalanche.report/weather_stations/stations.geojson");
+
+*/
