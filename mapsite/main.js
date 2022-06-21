@@ -25,7 +25,8 @@ let map = L.map("map", {
 // Layer control mit WMTS Hintergründen und Overlays
 let layerControl = L.control.layers({
     "Orthofoto": startLayer,
-    "Höhenmodell": L.tileLayer.provider("BasemapAT.terrain")
+    "Geländemodell": L.tileLayer.provider("BasemapAT.terrain"),
+    "Basemap Surface": L.tileLayer.provider("BasemapAT.surface"),
 }, {
     "Moore": overlays.Moore,
 }).addTo(map);
@@ -49,15 +50,19 @@ async function loadMoore(url) {
     let geojson = await response.json();
     //console.log(geojson);
 
-    L.geoJSON(geojson, {
+    let moore = L.geoJSON(geojson, {
         style: function (feature) {
             return {
                 color: "#F012BE"
             }
-        }
-
-    }).addTo(overlays.Moore);
+        }}).bindPopup(function (moore) {
+            return
+            `Ort: ${moore.KG_NAME}
+            `;
+        
+}).addTo(overlays.Moore).bindPopup(popup);
 }
+
 
 loadMoore("moordaten.json")
     
