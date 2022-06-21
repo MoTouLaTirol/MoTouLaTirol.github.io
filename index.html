@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuseelandreise</title>
+
+    <!-- Tab-Vorschaubild -->
+    <link rel="shortcut icon" href="images/user.jpg" type="image/jpg">
+
+    <!-- Stile einbauen -->
+    <link rel="stylesheet" href="main.css">
+
+    <!-- Font awesome einbauen -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Leaflet Bibliothek-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    
+    <!--Leaflet provider-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js"
+        integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Leaflet fullscreen -->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
+        rel='stylesheet' />
+
+    <!-- Leaflet Minimap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js"
+        integrity="sha512-WL3nAJlWFKoDShduxQRyY3wkBnQsINXdIfWIW48ZaPgYz1wYNnxIwFMMgigzSgjNBC2WWZ8Y8/sSyUU6abuF0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.css"
+        integrity="sha512-qm+jY0iQ4Xf5RL79UB75REDLYD0jtvxxVZp2RVIW8sm8RNiHdeN43oksqUPrBIshJtQcVPrAL08ML2Db8fFZiA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Kartenskript -->
+    
+    <script defer src="main.js"></script>
+
+    <!-- Etappen-Objekt -->
+    <script src="etappen.js"></script>
+
+    <!-- DOC Hütten -->
+    <script src="huts.js"></script>
+</head>
+
+<body>
+
+    <main class="shadow">
+        <header>
+            <img class="banner shadow" src="images/header.jpg"
+                alt="Ansicht von Gletscher mit Blick auf die Gletscherstirn">
+            <a href="https://github.com/FlixRauch"><img class="user shadow" src="images/user.jpg" alt="Userbild"></a>
+        </header>
+        <article>
+            <h1> Neuseelandreise</h1>
+            <h2><em>Franz-Josef-Gletscher</em></h2>
+            <h3>Allgemeines</h3>
+            <p>Der <strong>Franz-Josef-Gletscher</strong> (Englisch: Franz Josef Glacier, Māori: Kā Roimata o Hine
+                Hukatere) ist ein etwa 10 km langer Gletscher im Westland-Nationalpark auf der Südinsel Neuseelands. Er
+                befindet sich auf der Westseite der Neuseeländischen Alpen. Wie sein südlicher Nachbar, der
+                Fox-Gletscher, fließt er von seinem flacheren Nährgebiet die steile Westflanke dieses Gebirges hinunter.
+                Er entwässert über den Waiho River in die Tasmansee.
+                Im Jahr 1852 benannte Leonard Harper Franz-Josef- und Fox-Gletscher nach Victoria und Albert, dem
+                damaligen englischen Königspaar. Da er dies aber nicht offiziell bekannt machte, wurde er 1865 vom
+                deutschen Entdecker Julius von Haast nach Franz Joseph I. von Österreich benannt.
+            </p>
+            <figure>
+                <img class="shadow" src="images/attraction.jpg" alt="Blick auf den Franz Josef-Gletscher">
+                <figcaption><i class="fa-solid fa-camera-retro"></i>Blick auf Franz-Josef-Gletscher. Bild: <a
+                        href="https://pixabay.com/de/photos/franz-joseph-glacier-neuseeland-2152331/">Pixabay</a>
+                </figcaption>
+            </figure>
+            <h4>Gletscherdynamik</h4>
+            <p>Der Gletscher war vor etwa 150.000 Jahren so groß, dass er den Aoraki/Mount Cook und die umliegenden
+                Berge komplett einschloss. Das mehrmalige Schmelzen und Wiederanwachsen des Gletschers hatte zur Folge,
+                dass sich im Tal in Richtung Mer mehrere Hügelketten gebildet haben, die aus dem Moränengestein, das
+                der Gletscher vor sich hergeschoben hat, gebildet wurden. Der Franz-Josef-Gletscher ist ein temperierter
+                Gletscher und fließt pro Tag etwa einen halben Meter. Ein über dem Gletscher abgestürztes Flugzeug wurde
+                deswegen bereits nach vergleichsweise kurzen sieben Jahren wieder vom Eis freigegeben. Die hohe
+                Fließgeschwindigkeit ergibt sich auch durch das viele Wasser, das über Wasserfälle rechts und links des
+                Eises unter den Gletscher fließt und so als eine Art Gleitmittel dient.</p>
+            <figure>
+                <img class="shadow" src="images/attraction2.jpg" alt="Bild von Gletscher von oben">
+                <figcaption>Blick auf den Gletscher von oben. Bild: <a
+                        href="https://pixabay.com/de/photos/neuseeland-franz-josef-glacier-3679420/">Pixabay</a>
+                </figcaption>
+            </figure>
+
+            <h3>Übersichtskarte</h3>
+            <div id="map"></div>
+            
+            <div>
+                <nav id="navigation"></nav>
+            </div>
+
+            <h3>Links</h3>
+            <ul>
+                <li><a href="https://www.nzherald.co.nz/section/story.cfm?c_id=39&objectid=10518992">Neuste
+                        Erkenntnisse</a>
+                </li>
+                <li><a href="https://www.newzealand.com/de/franz-josef-glacier/">Allgemeine Informationen</a>
+                </li>
+                <li><a href="https://www.outdooractive.com/de/poi/suedinsel/franz-josef-glacier/22569271/">Wanderungen
+                    </a></li>
+            </ul>
+        </article>
+        <footer>
+            <nav>
+                <a class="back" href="https://stefangerer.github.io/nz/index.html"><i class="fa-solid fa-circle-arrow-left"></i>vorhergehende Etappe</a>
+                <a class="next" href="https://voitmax.github.io/nz/index.html"><i class="fa-solid fa-circle-arrow-right"></i>nächste Etappe</a>
+            </nav>
+        </footer>
+    </main>
+
+
+
+</body>
+
+</html>
