@@ -1,0 +1,30 @@
+To Do Moordaten 
+
+Logo:
+#3d5933
+rgba(61,89,51,255)
+
+Startseite: 
+- Texte verfassen 
+- Grafiken einbinden 
+- Grafiken anpassen (Farben)
+- Kasten machen 
+- links sind schon eingfügt 
+
+gpxsite: 
+- links/verweise auf die anderen Seiten 
+- icons suchen und runterladen aus den points aus dem input file 
+- mehr points of interest (auf google maps schauen)
+	- poi.js
+- Beschreibung Wanderung 
+- Infotafel zum Moor?
+
+mapsite: 
+- links/verweise auf die anderen Seiten 
+- popups aufrufen 
+- Überschrift formatieren 
+- favicon 
+- (Raster mit Hangneigung der Moore)
+
+Allgemein: 
+- alle Seiten einheitlich 
