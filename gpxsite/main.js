@@ -77,8 +77,8 @@ overlays.gpx.addTo(map);
 let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
     async: true,
     marker_options: {
-        startIconUrl: 'gpxsite/icons/start.png',
-        endIconUrl: 'gpxsite/icons/finish.png',
+        startIconUrl: 'icons/start.png', //Hier andere Icons hernehmen weil Start und Ziel am gleichen Punkt 
+        endIconUrl: 'icons/finish.png',
         shadowUrl: null,
         iconSize: [32,37],
         iconAnchor: [16,37]
