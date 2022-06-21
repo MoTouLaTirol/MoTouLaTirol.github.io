@@ -3,7 +3,7 @@ const pointsOfInterest = [{
     "lat": 47.240945,
     "lng": 11.417838,
     "name": "Lanser See",
-    "nype": "Badesee"
+    "type": "Badesee"
 },{
     "id": 2,
     "lat": 47.243099,
