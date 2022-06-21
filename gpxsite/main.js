@@ -83,18 +83,18 @@ let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
         startIconUrl: 'icons/start.png', //Hier andere Icons hernehmen weil Start und Ziel am gleichen Punkt 
         endIconUrl: 'icons/finish.png',
         shadowUrl: null,
-        iconSize: [32,37],
-        iconAnchor: [16,37]
+        iconSize: [32, 37],
+        iconAnchor: [16, 37]
     },
     polyline_options: {
         color: "black",
-        dashArray: [2,5]
+        dashArray: [2, 5]
     }
 }).addTo(overlays.gpx);
 
 //Verschiedene Marker für Points of interest --> Verschiedene Icons je nach Thema 
 
-gpxTrack.on("loaded", function(evt){
+gpxTrack.on("loaded", function (evt) {
     let gpxLayer = evt.target;
     map.fitBounds(gpxLayer.getBounds())
     let popup = `<h3>${gpxLayer.get_name()}</h3>
@@ -104,26 +104,51 @@ gpxTrack.on("loaded", function(evt){
         <li>höchster Punkt: ${gpxLayer.get_elevation_max().toFixed()}m </li>
         <li>Höhenmeter bergauf: ${gpxLayer.get_elevation_gain().toFixed()}m </li>
         <li>Höhenmeter bergab: ${gpxLayer.get_elevation_loss().toFixed()}m </li>`;
-        gpxLayer.bindPopup(popup);
+    gpxLayer.bindPopup(popup);
 })
 
 let elevationControl = L.control.elevation({
-    time:false,
-    elevationDiv:"#profile",
+    time: false,
+    elevationDiv: "#profile",
     theme: 'bike-tirol',
     height: 200,
 }).addTo(map);
-gpxTrack.on("addline", function(evt) {
+gpxTrack.on("addline", function (evt) {
     elevationControl.addData(evt.line);
 })
 
 //Points of Interest
+//Je nach Type von poi jetzt noch unterschiedliche Marker hinzufügen 
 for (let point of pointsOfInterest) {
     //console.log(etappe);
-    let popup = `
-      <h3>${point.name}</h3>
-      <p>${point.type}<p>
-  `;
-    
-  L.marker([point.lat, point.lng]).addTo(map).bindPopup(popup)
+    if (point.type == "Bushaltestelle" || point.type == "Tramhaltestelle") {
+        popup = `
+        <h3>${point.name}</h3>
+        <p>${point.type}<p>
+        <p>"Linie:" ${point.linie}<p>`
+    } else {
+        popup = `
+    <h3>${point.name}</h3>
+    <p>${point.type}<p>`
+    }
+    console.log(popup)
+    L.marker([point.lat, point.lng]).bindPopup(popup).addTo(map)
 }
+
+async function loadMoore(url) {
+    let response = await fetch(url);
+    let geojson = await response.json();
+    //console.log(geojson);
+
+    let moore = L.geoJSON(geojson, {
+        style: function (feature) {
+            return {
+                color: "#F012BE"
+            }
+        }
+        
+}).addTo(map);
+}
+
+loadMoore("moordaten.json")
+
