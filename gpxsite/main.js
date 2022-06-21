@@ -36,7 +36,8 @@ let startLayer = eGrundkarteTirol.sommer;
 
 // Overlays Objekt für den GPX Track Layer
 let overlays = {
-    gpx: L.featureGroup()
+    gpx: L.featureGroup(),
+    poi: L.featureGroup()
 };
 
 // Karte initialisieren
@@ -59,7 +60,8 @@ let layerControl = L.control.layers({
         eGrundkarteTirol.nomenklatur,
     ])
 }, {
-    "GPX Track der Etappe": overlays.gpx,
+    "GPX Track der Etappe": overlays.gpx
+    //"Points of Interest": overlays.poi
 }).addTo(map);
 
 // Maßstab control
@@ -72,6 +74,7 @@ L.control.fullscreen().addTo(map);
 
 // GPX Track Layer beim Laden anzeigen
 overlays.gpx.addTo(map);
+//overlays.poi.addTo(map);
 
 // GPX Track Layer implementieren
 let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
@@ -88,6 +91,8 @@ let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
         dashArray: [2,5]
     }
 }).addTo(overlays.gpx);
+
+//Verschiedene Marker für Points of interest --> Verschiedene Icons je nach Thema 
 
 gpxTrack.on("loaded", function(evt){
     let gpxLayer = evt.target;
@@ -111,3 +116,14 @@ let elevationControl = L.control.elevation({
 gpxTrack.on("addline", function(evt) {
     elevationControl.addData(evt.line);
 })
+
+//Points of Interest
+for (let point of pointsOfInterest) {
+    //console.log(etappe);
+    let popup = `
+      <h3>${point.name}</h3>
+      <p>${point.type}<p>
+  `;
+    
+  L.marker([point.lat, point.lng]).addTo(map).bindPopup(popup)
+}
