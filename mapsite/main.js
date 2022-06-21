@@ -50,15 +50,19 @@ async function loadMoore(url) {
     let geojson = await response.json();
     //console.log(geojson);
 
-    L.geoJSON(geojson, {
+    let moore = L.geoJSON(geojson, {
         style: function (feature) {
             return {
                 color: "#F012BE"
             }
-        }
-
-    }).addTo(overlays.Moore);
+        }}).bindPopup(function (moore) {
+            return
+            `Ort: ${moore.KG_NAME}
+            `;
+        
+}).addTo(overlays.Moore).bindPopup(popup);
 }
+
 
 loadMoore("moordaten.json")
     
