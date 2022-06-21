@@ -22,7 +22,7 @@ header {
 }
 
 header h2 {
-    margin: 0;
+    margin: 30;
 }
 
 header nav {
@@ -69,3 +69,11 @@ footer nav {
 
 
 }
+
+#logo {
+    width: 60px;
+    height: 60px;
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    }
