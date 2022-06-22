@@ -73,6 +73,14 @@ a {
     text-align: left;
 }
 
+.imglinks {
+    float: left;
+    width: 100px;
+    padding: 3px;
+    font-size: 0.7em;
+    border-radius: 100%;
+}
+
 #logo {
     width: 180px;
     float: right;
