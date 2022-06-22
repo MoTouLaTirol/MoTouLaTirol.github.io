@@ -56,30 +56,24 @@ a {
     text-align: justify;
 }
 
-.box {
-    
-    padding: 10px;
-    width: 600spx;
-    float: left;
-    box-sizing: border-box;
-    font-size: 0.8em;
-    border: 1px solid rgba(61,89,51,255);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-    background-color: rgba(61, 89, 51, 0.39);
-    margin-left: 10%;
-}
+
 
 .datensatzliste {
     text-align: left;
 }
 
 .imglinks {
-    float: left;
+    
     width: 100px;
     padding: 3px;
     font-size: 0.7em;
     border-radius: 100%;
+    text-align: center;
 }
+.linktable {
+    
+}
+
 
 #logo {
     width: 180px;
