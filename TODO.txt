@@ -9,7 +9,9 @@ Startseite:
 - Grafiken einbinden 
 - Grafiken anpassen (Farben)
 - Kasten machen 
-- links sind schon eingfügt 
+- verlinkungen sind schon eingefügt --> richtige links müssen noch eingefügt werden
+
+- seitenränder auf 35px --> ja oder nein?
 
 gpxsite: 
 - links/verweise auf die anderen Seiten 
