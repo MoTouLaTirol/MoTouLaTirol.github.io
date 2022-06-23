@@ -23,4 +23,42 @@ const pointsOfInterest = [{
     "name": "Bushaltestelle Römedihöfe",
     "type": "Bushaltestelle",
     "linie": "J"
+}, {
+    "id": 5,
+    "lat": 47.243320,
+    "lng": 11.415466,
+    "name": "Viller Kopf",
+    "type": "Aussichtspunkt"
+}, {
+    "id": 6,
+    "lat": 47.242261, 
+    "lng": 11.424503,
+    "name": "Waldpark Lans",
+    "type": "Spielplatz"
+}, {
+    "id": 7,
+    "lat": 47.241081, 
+    "lng": 11.423800,
+    "name": "Tramhaltestelle Lans-Sistrans",
+    "type": "Tramhaltestelle",
+    "linie": "6"
+}, {
+    "id": 8,
+    "lat": 47.236465, 
+    "lng": 11.402310,
+    "name": "Bushaltestelle Vill Dorfstraße",
+    "type": "Bushaltestelle", 
+    "linie": "4141, J, N7, N16"
+}, {
+    "id": 9,
+    "lat": 47.231552,  
+    "lng": 11.409949,
+    "name": "Kneipp Anlage Igls",
+    "type": "Kneipp Anlage"
+}, {
+    "id": 10,
+    "lat": 47.231024,  
+    "lng": 11.409403,
+    "name": "Tourismusinformation Igls",
+    "type": "Information"
 }]
