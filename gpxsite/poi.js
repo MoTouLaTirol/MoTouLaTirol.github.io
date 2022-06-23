@@ -61,4 +61,48 @@ const pointsOfInterest = [{
     "lng": 11.409403,
     "name": "Tourismusinformation Igls",
     "type": "Information"
-}]
+}, {
+    "id": 11,
+    "lat": 47.237804,  
+    "lng": 11.419365,
+    "name": "Parkplatz Lanser See",
+    "type": "Parkplatz"
+}, {
+    "id": 12,
+    "lat": 47.241097,  
+    "lng": 11.416739,
+    "name": "Koi Bar Lanser See",
+    "type": "Restaurant"
+}, {
+    "id": 13,
+    "lat": 47.230855,  
+    "lng": 11.410898,
+    "name": "Landgasthaus Ägidihof",
+    "type": "Restaurant"
+}, {
+    "id": 14,
+    "lat": 47.230293,  
+    "lng": 11.411834,
+    "name": "Pizzaria Venezia",
+    "type": "Restaurant"
+}, {
+    "id": 15,
+    "lat": 47.238817,  
+    "lng": 11.433624,
+    "name": "Gasthof Isserwirt",
+    "type": "Restaurant"
+}, {
+    "id": 16,
+    "lat": 47.238436,  
+    "lng": 11.432948,
+    "name": "Gasthaus zum Wilden Mann",
+    "type": "Restaurant"
+}, {
+    "id": 17,
+    "lat": 47.238054,  
+    "lng": 11.428445,
+    "name": "Gasthof Walzl",
+    "type": "Restaurant"
+}
+
+]
