@@ -221,6 +221,28 @@ for (let point of pointsOfInterest) {
                 popupAnchor: [0, -37]
             })
         }).bindPopup(popup).addTo(map)
+    } else if (point.type == "Lebensmittelladen") {
+        popup = `
+        <h3>${point.name}</h3>
+        <p>${point.type}<p>`
+        L.marker([point.lat, point.lng], {
+            icon: L.icon({
+                iconUrl: "icons/supermarket.png",
+                iconAnchor: [16, 37],
+                popupAnchor: [0, -37]
+            })
+        }).bindPopup(popup).addTo(map)
+    } else if (point.type == "Hofladen") {
+        popup = `
+        <h3>${point.name}</h3>
+        <p>${point.type}<p>`
+        L.marker([point.lat, point.lng], {
+            icon: L.icon({
+                iconUrl: "icons/farmstand.png",
+                iconAnchor: [16, 37],
+                popupAnchor: [0, -37]
+            })
+        }).bindPopup(popup).addTo(map)
     }
 }
 

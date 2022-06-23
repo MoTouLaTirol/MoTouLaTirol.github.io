@@ -81,14 +81,14 @@ const pointsOfInterest = [{
     "type": "Restaurant"
 }, {
     "id": 14,
-    "lat": 47.230293,  
-    "lng": 11.411834,
+    "lat": 47.230282,  
+    "lng": 11.411782,
     "name": "Pizzaria Venezia",
     "type": "Restaurant"
 }, {
     "id": 15,
-    "lat": 47.238817,  
-    "lng": 11.433624,
+    "lat": 47.238621,  
+    "lng": 11.433595,
     "name": "Gasthof Isserwirt",
     "type": "Restaurant"
 }, {
@@ -99,10 +99,34 @@ const pointsOfInterest = [{
     "type": "Restaurant"
 }, {
     "id": 17,
-    "lat": 47.238054,  
-    "lng": 11.428445,
+    "lat": 47.237950,  
+    "lng": 11.428429,
     "name": "Gasthof Walzl",
     "type": "Restaurant"
+}, {
+    "id": 18,
+    "lat": 47.230003,  
+    "lng": 11.408243,
+    "name": "SPAR",
+    "type": "Lebensmittelladen"
+}, {
+    "id": 19,
+    "lat": 47.240929,  
+    "lng": 11.435331,
+    "name": "MPREIS",
+    "type": "Lebensmittelladen"
+}, {
+    "id": 20,
+    "lat": 47.234977,  
+    "lng": 11.402176,
+    "name": "Direkt vom Bauernhof",
+    "type": "Hofladen"
+}, {
+    "id": 21,
+    "lat": 47.238513,  
+    "lng": 11.433891,
+    "name": "Noringerhof Hofladen",
+    "type": "Hofladen"
 }
 
 ]
