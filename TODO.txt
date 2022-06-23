@@ -8,7 +8,6 @@ Startseite:
 - Texte verfassen 
 - Grafiken einbinden 
 - Grafiken anpassen (Farben)
-- Kasten machen 
 - verlinkungen sind schon eingefügt --> richtige links müssen noch eingefügt werden
 
 - seitenränder auf 35px --> ja oder nein?
