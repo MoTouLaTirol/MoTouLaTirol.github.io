@@ -81,7 +81,6 @@ let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
     async: true,
     marker_options: {
         startIconUrl: 'icons/start.png', //Hier andere Icons hernehmen weil Start und Ziel am gleichen Punkt 
-        endIconUrl: 'icons/finish.png',
         shadowUrl: null,
         iconSize: [32, 37],
         iconAnchor: [16, 37]
@@ -97,7 +96,7 @@ let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
 gpxTrack.on("loaded", function (evt) {
     let gpxLayer = evt.target;
     map.fitBounds(gpxLayer.getBounds())
-    let popup = `<h3>${gpxLayer.get_name()}</h3>
+    let popup = `<h3>Themenwanderung Lanser Moor</h3>
     <ul>
         <li>Streckenlänge: ${(gpxLayer.get_distance()/1000).toFixed()}km </li>
         <li>tiefster Punkt:  ${gpxLayer.get_elevation_min().toFixed()}m </li>
