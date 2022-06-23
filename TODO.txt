@@ -12,6 +12,7 @@ Startseite:
 - verlinkungen sind schon eingefügt --> richtige links müssen noch eingefügt werden
 
 - seitenränder auf 35px --> ja oder nein?
+- border-radius bei Logo einfügen ja oder neine? 
 
 gpxsite: 
 - links/verweise auf die anderen Seiten 
@@ -30,3 +31,5 @@ mapsite:
 
 Allgemein: 
 - alle Seiten einheitlich 
+- Lanser Moor/Viller Moor einheitlich!
+
