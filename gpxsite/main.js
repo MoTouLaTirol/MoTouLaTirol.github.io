@@ -108,7 +108,7 @@ gpxTrack.on("loaded", function (evt) {
 let elevationControl = L.control.elevation({
     time: false,
     elevationDiv: "#profile",
-    theme: 'bike-tirol',
+    theme: 'them-wanderung',
     height: 200,
 }).addTo(map);
 gpxTrack.on("addline", function (evt) {
