@@ -53,6 +53,7 @@ a {
     padding: 10px;
     width: 500px;
     text-align: justify;
+    border-radius: 10px;
 }
 
 .link_table {
@@ -61,6 +62,7 @@ a {
     background-color: rgba(61, 89, 51, 0.1);
     padding: 27px;
     width: 800px;
+    border-radius: 10px;
 }
 
 .moorgraphik {
