@@ -3,14 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bike Trail Tirol Beispiel</title>
+    <title>MoTouLaTirol</title>
 
     <!-- Tab-Vorschaubild -->
     <link rel="shortcut icon" href="icons/wetland_icon.png" type="icon/png">
 
-    <!-- Font awesome -->
+    <!-- eigene Stile und Hauptskript -->
+    <link rel="stylesheet" href="main.css">
+    <script defer src="main.js"></script>
+
+    <!-- Points of Interest-Objekt -->
+    <script src="poi.js"></script>
+
+    <!-- Font awesome einbauen -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -41,25 +48,17 @@
     <!-- leaflet-elevation -->
     <link rel="stylesheet" href="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.css" />
     <script src="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.js"></script>
-
-
-    <!-- eigene Stile und Hauptskript -->
-    <link rel="stylesheet" href="main.css">
-    <script defer src="main.js"></script>
-
-    <!-- Points of Interest-Objekt -->
-    <script src="poi.js"></script>
 </head>
 
 <body>
     <main>
         <header>
-            <div>
-                <h2><i class="fa-solid fa-person-biking"></i> Bike Trail Tirol Beispiel</h2>
-            </div>
-            <nav>
+            <img class="banner shadow" src="images/header.jpg"
+                alt="Blick auf Moorfläche im Vordergrund und Nadelwald im Hintergrund, Abendstimmung">
+            <!--Link zum Github Repo?-->
+            <!--<nav>
                 <i class="fab fa-github"></i> <a href="https://github.com/webmapping/biketirol">Github</a>
-            </nav>
+            </nav>-->
         </header>
         <article>
             <h1><a href=""></a>Thematische Rundwanderung</h1>

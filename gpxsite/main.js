@@ -1,5 +1,3 @@
-/* Bike Trail Tirol Beispiel */
-
 let innsbruck = {
     lat: 47.267222,
     lng: 11.392778,
@@ -79,12 +77,13 @@ overlays.gpx.addTo(map);
 // GPX Track Layer implementieren
 let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
     async: true,
-    marker_options: {
+    // Why the fuck bleiben diese komischen leeren Marker da drin?!
+    /*marker_options: {
         startIconUrl: 'icons/start.png', //Hier andere Icons hernehmen weil Start und Ziel am gleichen Punkt 
         shadowUrl: null,
         iconSize: [32, 37],
         iconAnchor: [16, 37]
-    },
+    },*/
     polyline_options: {
         color: "black",
         dashArray: [2, 5]
@@ -109,7 +108,7 @@ gpxTrack.on("loaded", function (evt) {
 let elevationControl = L.control.elevation({
     time: false,
     elevationDiv: "#profile",
-    theme: 'bike-tirol',
+    theme: 'them-wanderung',
     height: 200,
 }).addTo(map);
 gpxTrack.on("addline", function (evt) {
