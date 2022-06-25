@@ -7,11 +7,13 @@ rgba(61,89,51,255)
 Startseite: 
 - Texte verfassen 
 - Grafiken einbinden 
-- Grafiken anpassen (Farben)
+- Grafiken anpassen und ohne Überschrift (Farben)
 - verlinkungen sind schon eingefügt --> richtige links müssen noch eingefügt werden
 
 - seitenränder auf 35px --> ja oder nein?
-- border-radius bei Logo einfügen ja oder neine? 
+- Überschriften auch noch einrücken?
+- border-radius bei Logo einfügen ja oder nein?
+- Literaturquellen direkt im Text schon zitieren? 
 
 gpxsite: 
 - links/verweise auf die anderen Seiten 
