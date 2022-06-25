@@ -85,6 +85,7 @@ a {
 }
 .quellen {
     font-size: 0.8em;
+    margin-right: 35px;
 }
 .green {
     color: rgba(61, 89, 51);
@@ -97,6 +98,7 @@ a {
     float: right;
     margin-left: 20px;
     margin-bottom: 20px;
+    border-radius: 3%;
     
 }
 
