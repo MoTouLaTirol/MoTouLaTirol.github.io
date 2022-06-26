@@ -50,6 +50,7 @@ async function loadMoore(url) {
     let geojson = await response.json();
     //console.log(geojson);
 
+
     let moore = L.geoJSON(geojson, {
         style: function (feature) {
             return {
@@ -61,6 +62,9 @@ async function loadMoore(url) {
             `;
         
 }).addTo(overlays.Moore).bindPopup(popup);
+
+
+
 }
 
 
