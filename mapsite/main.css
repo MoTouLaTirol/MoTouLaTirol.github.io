@@ -19,10 +19,11 @@ header {
     display: flex;
     justify-content: space-between;
     max-height: 50px;
+    
 }
 
-header h2 {
-    margin: 30;
+main h2 {
+    text-align: center;
 }
 
 header nav {
