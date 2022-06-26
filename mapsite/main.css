@@ -15,31 +15,30 @@ main {
     margin: auto;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    max-height: 50px;
-    
-}
-
-header h2 {
-    position: relative;
-    right: -20px;
+main h2 {
+    text-align: center;  
+    left: -100px; 
+    border: 1px solid rgba(61, 89, 51, 255);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);*/
+    background-color: rgba(61, 89, 51, 0.1);
+    padding: 10px;
+    width: 650px;
+    border-radius: 0px;
     
 }
 
 header #logo {
-    position:static;
+    position: relative;
     width:90px;
     height:90px;
-    left:0px;
-    top:0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    
 }
 
 
 
 article {
-    margin-top: 4em;
+    margin-top: 1em;
 }
 
 article #map {
