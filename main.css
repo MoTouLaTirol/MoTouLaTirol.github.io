@@ -55,15 +55,6 @@ a {
     border-radius: 10px;
 }
 
-.link_table {
-    border: 1px solid rgba(61, 89, 51, 255);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-    background-color: rgba(61, 89, 51, 0.1);
-    padding: 27px;
-    width: 800px;
-    border-radius: 10px;
-}
-
 .moorgraphik {
     width: 450px;
     font-size: 0.7em;
@@ -74,19 +65,26 @@ a {
 }
 
 .imglinks {
-
     width: 100px;
     padding: 3px;
     font-size: 0.7em;
     border-radius: 100%;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-
 }
 
 .quellen {
     font-size: 0.8em;
     margin-right: 35px;
+}
+
+.link_table {
+    border: 1px solid rgba(61, 89, 51, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(61, 89, 51, 0.1);
+    padding: 27px;
+    width: 800px;
+    border-radius: 10px;
 }
 
 .green {
@@ -99,7 +97,6 @@ a {
     margin-left: 20px;
     margin-bottom: 20px;
     border-radius: 3%;
-
 }
 
 img.banner {
