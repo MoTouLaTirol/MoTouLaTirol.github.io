@@ -59,7 +59,6 @@ let layerControl = L.control.layers({
     ])
 }, {
     "GPX Track der Etappe": overlays.gpx
-    //"Points of Interest": overlays.poi
 }).addTo(map);
 
 // Maßstab control
@@ -72,26 +71,17 @@ L.control.fullscreen().addTo(map);
 
 // GPX Track Layer beim Laden anzeigen
 overlays.gpx.addTo(map);
-//overlays.poi.addTo(map);
 
 // GPX Track Layer implementieren
 let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
     async: true,
-    // Why the fuck bleiben diese komischen leeren Marker da drin?!
-    /*marker_options: {
-        startIconUrl: 'icons/start.png', //Hier andere Icons hernehmen weil Start und Ziel am gleichen Punkt 
-        shadowUrl: null,
-        iconSize: [32, 37],
-        iconAnchor: [16, 37]
-    },*/
     polyline_options: {
         color: "black",
         dashArray: [2, 5]
     }
 }).addTo(overlays.gpx);
 
-//Verschiedene Marker für Points of interest --> Verschiedene Icons je nach Thema 
-
+//einladen und Visualisieren von gpx-Track
 gpxTrack.on("loaded", function (evt) {
     let gpxLayer = evt.target;
     map.fitBounds(gpxLayer.getBounds())
@@ -105,6 +95,7 @@ gpxTrack.on("loaded", function (evt) {
     gpxLayer.bindPopup(popup);
 })
 
+//Einbinden von Höhenprofil
 let elevationControl = L.control.elevation({
     time: false,
     elevationDiv: "#profile",
@@ -115,8 +106,7 @@ gpxTrack.on("addline", function (evt) {
     elevationControl.addData(evt.line);
 })
 
-//Points of Interest
-//Je nach Type von poi jetzt noch unterschiedliche Marker hinzufügen -> Done!
+//Points of Interest mit Markern je nach type
 for (let point of pointsOfInterest) {
     //console.log(etappe);
     if (point.type == "Bushaltestelle") {
@@ -245,7 +235,7 @@ for (let point of pointsOfInterest) {
     }
 }
 
-//Einladen von Moorpolygonen --> Marker hinzufügen für Infos über Moore 
+//Einladen von Moorpolygonen 
 async function loadMoore(url) {
     let response = await fetch(url);
     let geojson = await response.json();
