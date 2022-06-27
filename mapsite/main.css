@@ -15,24 +15,30 @@ main {
     margin: auto;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    max-height: 50px;
+main h2 {
+    text-align: absolute;  
+    left: -100px;
+    border: 1px solid rgba(61, 89, 51, 255);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);*/
+    background-color: rgba(61, 89, 51, 0.1);
+    padding: 10px;
+    width: 650px;
+    border-radius: 0px;
+    
 }
 
-header h2 {
-    margin: 30;
+header #logo {
+    position: relative;
+    width:90px;
+    height:90px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    
 }
 
-header nav {
-    font-size: 0.9em;
-    font-weight: bold;
-    padding-top: 1em;
-}
+
 
 article {
-    margin-top: 0.5em;
+    margin-top: 1em;
 }
 
 article #map {
