@@ -93,8 +93,6 @@ a {
     color: rgba(61, 89, 51);
 }
 
-
-
 #logo {
     width: 180px;
     float: right;
@@ -104,7 +102,6 @@ a {
 
 }
 
-
 img.banner {
     width: 100%;
 }
@@ -113,7 +110,6 @@ footer {
     border-top: 1px solid black;
     padding: 1em 2em 3em 1em;
 }
-
 
 footer .next {
     float: right;
