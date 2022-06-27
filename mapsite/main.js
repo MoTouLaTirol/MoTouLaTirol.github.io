@@ -51,20 +51,18 @@ async function loadMoore(url) {
     //console.log(geojson);
 
 
-    let moore = L.geoJSON(geojson, {
+    L.geoJSON(geojson, {
         style: function (feature) {
+            //console.log(feature)
             return {
                 color: "#F012BE"
             }
-        }}).bindPopup(function (moore) {
-            return
-            `Ort: ${moore.KG_NAME}
-            `;
-        
-}).addTo(overlays.Moore).bindPopup(popup);
-
-
-
+        },
+    }).bindPopup(function (layer) {
+        console.log(layer.feature.properties)
+        let prop = layer.feature.properties;
+        return `<h3>${prop.KG_NAME}</h3>`
+    }).addTo(overlays.Moore);
 }
 
 
