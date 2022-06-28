@@ -69,6 +69,12 @@ L.control.scale({
     imperial: false
 }).addTo(map);
 
+// Minimap
+let miniMap = new L.Control.MiniMap(
+    L.tileLayer.provider("OpenStreetMap.Mapnik")
+    
+).addTo(map);
+
 // Fullscreen control
 L.control.fullscreen().addTo(map);
 
