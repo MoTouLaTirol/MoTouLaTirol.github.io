@@ -83,12 +83,11 @@ img.banner {
 }
 
 footer #logo {
-    position: fixed;
+    position: absolute;
     left: 450px;
-    bottom: 20px;
+    bottom: -820px;
     width: 80px;
     height: 80px;
-    
     }
 
 
