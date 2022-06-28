@@ -98,11 +98,6 @@ async function loadMoore(url) {
                     color: "#FFDC00"
                 }
             };
-            if (feature.properties.BODENTYP == "N"){
-                return {
-                    color: "#FF851B"
-                }
-            };
             if (feature.properties.BODENTYP.includes("HM") == true){
                 return {
                     color: "#39CCCC"
