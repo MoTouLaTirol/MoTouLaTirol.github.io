@@ -37,14 +37,6 @@ main h2 {
     
 }
 
-header #logo {
-    position: relative;
-    width:90px;
-    height:90px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-    
-}
-
 #logo2 {
     width: 90px;
     height: 90px;
@@ -74,6 +66,25 @@ article p {
     margin-left: 35px;
 }
 
+#M {
+    background-color: #2ECC40;
+}
+
+#HM {
+    background-color: #39CCCC;
+}
+
+#UM {
+    background-color: #B10DC9;
+}
+
+#NM {
+    background-color: #FFDC00;
+}
+
+#N {
+     background-color: #85144b ;
+}
 footer {
     border-top: 1px solid black;
     padding: 1em 2em 3em 1em;

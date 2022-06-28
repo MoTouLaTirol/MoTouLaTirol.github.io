@@ -91,7 +91,7 @@ async function loadMoore(url) {
         style: function (feature) {
             if (feature.properties.BODENTYP.includes("UM") == true){
                 return {
-                    color: "#0074D9"
+                    color: "#B10DC9 "
                 }
             };
             if (feature.properties.BODENTYP.includes("NM") == true){
@@ -106,12 +106,12 @@ async function loadMoore(url) {
             };
             if (feature.properties.BODENTYP.includes("M") == true){
                 return {
-                    color: "#2ECC40 "
+                    color: "#2ECC40"
                 }
             };
             if (feature.properties.BODENTYP.includes("N") == true){
                 return {
-                    color: "#001f3f"
+                    color: "#85144b"
                 }
             }
 
