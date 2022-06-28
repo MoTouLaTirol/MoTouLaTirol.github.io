@@ -72,7 +72,12 @@ L.control.scale({
 // Minimap
 let miniMap = new L.Control.MiniMap(
     eGrundkarteTirol.sommer,
-    
+    {
+        width: 100,
+        height: 100
+
+    } 
+
 ).addTo(map);
 
 // Fullscreen control
