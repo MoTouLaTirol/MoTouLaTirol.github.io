@@ -75,6 +75,11 @@ overlays.gpx.addTo(map);
 // GPX Track Layer implementieren
 let gpxTrack = new L.GPX("../data/viller-moor.gpx", {
     async: true,
+    marker_options: {
+    wptIconUrls: null,
+    startIconUrl: null,
+    endIconUrl: null,
+    },
     polyline_options: {
         color: "black",
         dashArray: [2, 5]
