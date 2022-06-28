@@ -86,20 +86,45 @@ async function loadMoore(url) {
     //console.log(geojson);
 
     L.geoJSON(geojson, {
-        style: function (feature) {
-            //console.log(feature)
-            return {
-                color: "#F012BE"
-            }
-        },
 
-    }).bindPopup(function (layer) {
+        style: function (feature) {
+            if (feature.properties.BODENTYP.includes("UM") == true){
+                return {
+                    color: "#0074D9"
+                }
+            };
+            if (feature.properties.BODENTYP.includes("NM") == true){
+                return {
+                    color: "#FFDC00"
+                }
+            };
+            if (feature.properties.BODENTYP == "N"){
+                return {
+                    color: "#FF851B"
+                }
+            };
+            if (feature.properties.BODENTYP.includes("HM") == true){
+                return {
+                    color: "#39CCCC"
+                }
+            };
+            if (feature.properties.BODENTYP.includes("M") == true){
+                return {
+                    color: "#2ECC40 "
+                }
+            };
+            if (feature.properties.BODENTYP.includes("N") == true){
+                return {
+                    color: "#001f3f"
+                }
+            }
+
+    }}).bindPopup(function (layer) {
         //*console.log(layer.feature.properties)
         let prop = layer.feature.properties;
         return `<h3>Ort: ${prop.KG_NAME}</h3>
         <hr>
         <strong>Bodentyp:</strong> ${prop.BODENTYP}
-        <br><strong>Kulturart:</strong> ${prop.KULTURART}
         <br><strong>Zustand:</strong> ${prop.ZUSTAND}
         <br><strong>Wasserstufe:</strong> ${prop.WASSERSTUF}`
     }).addTo(overlays.Moore);
