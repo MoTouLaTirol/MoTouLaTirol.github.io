@@ -71,7 +71,7 @@ L.control.scale({
 
 // Minimap
 let miniMap = new L.Control.MiniMap(
-    L.tileLayer.provider("OpenStreetMap.Mapnik")
+    startLayer   
     
 ).addTo(map);
 
