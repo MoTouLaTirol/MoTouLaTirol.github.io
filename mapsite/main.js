@@ -78,6 +78,21 @@ L.control.fullscreen().addTo(map);
 //Moore beim Laden anzeigen 
 overlays.Moore.addTo(map);
 
+
+//Legende 
+let legend = L.control({position: 'bottomright'});
+legend.onAdd = getLegend;
+legend.addTo(map);
+
+function getLegend () {
+  return '<h3>Legende</h3>' +
+    '<i style="background:#eff3ff"></i> 0 - 25<br>' +
+    '<i style="background:#bdd7e7"></i> 25 - 50<br>' +
+    '<i style="background:#6baed6"></i> 50 - 75<br>' +
+    '<i style="background:#2171b5"></i> 75 - 100';
+}
+
+
 // Moore in die Karte einfügen
 
 async function loadMoore(url) {
