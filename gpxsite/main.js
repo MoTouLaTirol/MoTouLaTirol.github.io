@@ -165,6 +165,10 @@ async function loadMoore(url) {
             }
         }
 
+    }).bindPopup(function (layer) {
+        console.log(layer.feature.properties)
+        let prop = layer.feature.properties;
+        return `<h3>${prop.KG_NAME}</h3>`
     }).addTo(map);
 }
 
