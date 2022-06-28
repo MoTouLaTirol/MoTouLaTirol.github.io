@@ -1,12 +1,37 @@
 /* Wetterstationen Tirol Beispiel */
 
+//* WMTS Hintergrundkarte
+const eGrundkarteTirol = {
+    sommer: L.tileLayer(
+        "http://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
+            attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+        }
+    ),
+    winter: L.tileLayer(
+        "http://wmts.kartetirol.at/gdi_winter/{z}/{x}/{y}.png", {
+            attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+        }
+    ),
+    ortho: L.tileLayer(
+        "http://wmts.kartetirol.at/gdi_ortho/{z}/{x}/{y}.png", {
+            attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+        }
+    ),
+    nomenklatur: L.tileLayer(
+        "http://wmts.kartetirol.at/gdi_nomenklatur/{z}/{x}/{y}.png", {
+            attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
+            pane: "overlayPane",
+        }
+    )
+}
+
 let innsbruck = {
     lat: 47.267222,
     lng: 11.392778,
     zoom: 11
 };
 
-let startLayer = L.tileLayer.provider("BasemapAT.orthofoto");
+let startLayer = eGrundkarteTirol.ortho;
 
 
 // Overlays Objekt für die thematischen Layer
@@ -25,9 +50,13 @@ let map = L.map("map", {
 
 // Layer control mit WMTS Hintergründen und Overlays
 let layerControl = L.control.layers({
-    "Orthofoto": startLayer,
-    "Geländemodell": L.tileLayer.provider("BasemapAT.terrain"),
-    "Basemap Surface": L.tileLayer.provider("BasemapAT.surface"),
+    "eGrundkarte Tirol Orthofoto": startLayer,
+    "eGrundkarte Tirol Winter": eGrundkarteTirol.winter,
+    "eGrundkarte Tirol Sommer": eGrundkarteTirol.sommer,
+    "eGrundkarte Tirol Orthofoto mit Beschriftung": L.layerGroup([
+        eGrundkarteTirol.ortho,
+        eGrundkarteTirol.nomenklatur,
+    ])
 }, {
     "Moore": overlays.Moore,
 }).addTo(map);
