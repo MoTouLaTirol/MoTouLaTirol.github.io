@@ -10,13 +10,6 @@ a {
     color: black;
 }
 
-article p {
-    text-align: justify;
-    line-height: 1.2em;
-    margin-right: 35px;
-    margin-left: 35px;
-}
-
 main {
     background-color: white;
     max-width: 1024px;
@@ -29,11 +22,6 @@ main h1 {
 
 header {
     text-align: center;
-}
-
-main {
-    max-width: 1200px;
-    margin: auto;
 }
 
 main h2 {
@@ -56,8 +44,6 @@ header #logo {
     
 }
 
-
-
 article {
     margin-top: 1em;
 }
@@ -66,6 +52,13 @@ article #map {
     width: 100%;
     height: 600px;
     border: 1px solid gray;
+}
+
+article p {
+    text-align: justify;
+    line-height: 1.2em;
+    margin-right: 35px;
+    margin-left: 35px;
 }
 
 footer {
