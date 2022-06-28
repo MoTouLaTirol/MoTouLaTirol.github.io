@@ -121,7 +121,7 @@ for (let point of pointsOfInterest) {
         <p>"Linie:" ${point.linie}<p>`
         L.marker([point.lat, point.lng], {
             icon: L.icon({
-                iconUrl: "icons/bus.png",
+                iconUrl: `${point.icon}`,
                 iconAnchor: [16, 37],
                 popupAnchor: [0, -37]
             })
@@ -133,111 +133,23 @@ for (let point of pointsOfInterest) {
             <p>"Linie: "${point.linie}<p>`
         L.marker([point.lat, point.lng], {
             icon: L.icon({
-                iconUrl: "icons/tramway.png",
+                iconUrl: `${point.icon}`,
                 iconAnchor: [16, 37],
                 popupAnchor: [0, -37]
             })
         }).bindPopup(popup).addTo(map)
-    } else if (point.type == "Spielplatz") {
+    } else {
         popup = `
         <h3>${point.name}</h3>
         <p>${point.type}<p>`
         L.marker([point.lat, point.lng], {
             icon: L.icon({
-                iconUrl: "icons/playground.png",
+                iconUrl: `${point.icon}`,
                 iconAnchor: [16, 37],
                 popupAnchor: [0, -37]
             })
         }).bindPopup(popup).addTo(map)
-    } else if (point.type == "Badesee") {
-        popup = `
-        <h3>${point.name}</h3>
-        <p>${point.type}<p>`
-        L.marker([point.lat, point.lng], {
-            icon: L.icon({
-                iconUrl: "icons/lake.png",
-                iconAnchor: [16, 37],
-                popupAnchor: [0, -37]
-            })
-        }).bindPopup(popup).addTo(map)
-    } else if (point.type == "Aussichtspunkt") {
-        popup = `
-        <h3>${point.name}</h3>
-        <p>${point.type}<p>`
-        L.marker([point.lat, point.lng], {
-            icon: L.icon({
-                iconUrl: "icons/panoramicview.png",
-                iconAnchor: [16, 37],
-                popupAnchor: [0, -37]
-            })
-        }).bindPopup(popup).addTo(map)
-    } else if (point.type == "Moor") {
-        popup = `
-        <h3>${point.name}</h3>
-        <p>${point.type}<p>`
-        L.marker([point.lat, point.lng], {
-            icon: L.icon({
-                iconUrl: "icons/moor.png",
-                iconAnchor: [16, 37],
-                popupAnchor: [0, -37]
-            })
-        }).bindPopup(popup).addTo(map)
-    } else if (point.type == "Information") {
-        popup = `
-        <h3>${point.name}</h3>
-        <p>${point.type}<p>`
-        L.marker([point.lat, point.lng], {
-            icon: L.icon({
-                iconUrl: "icons/information.png",
-                iconAnchor: [16, 37],
-                popupAnchor: [0, -37]
-            })
-        }).bindPopup(popup).addTo(map)
-    } else if (point.type == "Parkplatz") {
-        popup = `
-        <h3>${point.name}</h3>
-        <p>${point.type}<p>`
-        L.marker([point.lat, point.lng], {
-            icon: L.icon({
-                iconUrl: "icons/parking.png",
-                iconAnchor: [16, 37],
-                popupAnchor: [0, -37]
-            })
-        }).bindPopup(popup).addTo(map)
-    } else if (point.type == "Restaurant") {
-        popup = `
-        <h3>${point.name}</h3>
-        <p>${point.type}<p>`
-        L.marker([point.lat, point.lng], {
-            icon: L.icon({
-                iconUrl: "icons/restaurant.png",
-                iconAnchor: [16, 37],
-                popupAnchor: [0, -37]
-            })
-        }).bindPopup(popup).addTo(map)
-    } else if (point.type == "Lebensmittelladen") {
-        popup = `
-        <h3>${point.name}</h3>
-        <p>${point.type}<p>`
-        L.marker([point.lat, point.lng], {
-            icon: L.icon({
-                iconUrl: "icons/supermarket.png",
-                iconAnchor: [16, 37],
-                popupAnchor: [0, -37]
-            })
-        }).bindPopup(popup).addTo(map)
-    } else if (point.type == "Hofladen") {
-        popup = `
-        <h3>${point.name}</h3>
-        <p>${point.type}<p>`
-        L.marker([point.lat, point.lng], {
-            icon: L.icon({
-                iconUrl: "icons/farmstand.png",
-                iconAnchor: [16, 37],
-                popupAnchor: [0, -37]
-            })
-        }).bindPopup(popup).addTo(map)
-    }
+    } 
 }
 
 //Einladen von Moorpolygonen 
