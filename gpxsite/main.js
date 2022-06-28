@@ -118,7 +118,7 @@ for (let point of pointsOfInterest) {
         popup = `
         <h3>${point.name}</h3>
         <p>${point.type}<p>
-        <p>"Linie:" ${point.linie}<p>`
+        <p>Linie: ${point.linie}<p>`
         L.marker([point.lat, point.lng], {
             icon: L.icon({
                 iconUrl: `${point.icon}`,
@@ -130,7 +130,7 @@ for (let point of pointsOfInterest) {
         popup = `
             <h3>${point.name}</h3>
             <p>${point.type}<p>
-            <p>"Linie: "${point.linie}<p>`
+            <p>Linie: ${point.linie}<p>`
         L.marker([point.lat, point.lng], {
             icon: L.icon({
                 iconUrl: `${point.icon}`,
