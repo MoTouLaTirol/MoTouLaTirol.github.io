@@ -69,6 +69,16 @@ L.control.scale({
 // Fullscreen control
 L.control.fullscreen().addTo(map);
 
+// Minimap
+let miniMap = new L.Control.MiniMap(
+    eGrundkarteTirol.sommer,
+    {
+        width: 100,
+        height: 100
+    } 
+
+).addTo(map);
+
 // GPX Track Layer beim Laden anzeigen
 overlays.gpx.addTo(map);
 
