@@ -107,3 +107,12 @@ img.banner {
     margin-left: 20px;
     margin-bottom: 20px;
     }
+
+footer .next {
+        float: right;
+    }
+
+footer {
+        border-top: 1px solid black;
+        padding: 1em 2em 3em 1em;
+    }
