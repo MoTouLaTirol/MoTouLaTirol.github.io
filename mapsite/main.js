@@ -1,4 +1,4 @@
-/* Wetterstationen Tirol Beispiel */
+/* Mapsite */
 
 //* WMTS Hintergrundkarte
 const eGrundkarteTirol = {
@@ -92,7 +92,6 @@ overlays.Moore.addTo(map);
 async function loadMoore(url) {
     let response = await fetch(url);
     let geojson = await response.json();
-    //console.log(geojson);
 
     L.geoJSON(geojson, {
 
@@ -124,7 +123,6 @@ async function loadMoore(url) {
             }
 
     }}).bindPopup(function (layer) {
-        //*console.log(layer.feature.properties)
         let prop = layer.feature.properties;
         return `<h3>Ort: ${prop.KG_NAME}</h3>
         <hr>
