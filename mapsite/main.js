@@ -71,13 +71,10 @@ L.control.scale({
 
 // Minimap
 let miniMap = new L.Control.MiniMap(
-    eGrundkarteTirol.sommer,
-    {
+    eGrundkarteTirol.sommer, {
         width: 100,
         height: 100
-
-    } 
-
+    }
 ).addTo(map);
 
 // Fullscreen control
@@ -96,33 +93,34 @@ async function loadMoore(url) {
     L.geoJSON(geojson, {
 
         style: function (feature) {
-            if (feature.properties.BODENTYP.includes("UM") == true){
+            if (feature.properties.BODENTYP.includes("UM") == true) {
                 return {
                     color: "#B10DC9 "
                 }
             };
-            if (feature.properties.BODENTYP.includes("NM") == true){
+            if (feature.properties.BODENTYP.includes("NM") == true) {
                 return {
                     color: "#FFDC00"
                 }
             };
-            if (feature.properties.BODENTYP.includes("HM") == true){
+            if (feature.properties.BODENTYP.includes("HM") == true) {
                 return {
                     color: "#39CCCC"
                 }
             };
-            if (feature.properties.BODENTYP.includes("M") == true){
+            if (feature.properties.BODENTYP.includes("M") == true) {
                 return {
                     color: "#2ECC40"
                 }
             };
-            if (feature.properties.BODENTYP.includes("N") == true){
+            if (feature.properties.BODENTYP.includes("N") == true) {
                 return {
                     color: "#85144b"
                 }
             }
 
-    }}).bindPopup(function (layer) {
+        }
+    }).bindPopup(function (layer) {
         let prop = layer.feature.properties;
         return `<h3>Ort: ${prop.KG_NAME}</h3>
         <hr>
@@ -134,7 +132,3 @@ async function loadMoore(url) {
 
 
 loadMoore("moordaten.json")
-    
-
-
-
