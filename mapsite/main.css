@@ -26,7 +26,7 @@ header {
 }
 
 main h2 {
-    text-align: absolute;  
+    text-align: absolute;
     left: -100px;
     border: 1px solid rgba(61, 89, 51, 255);
     /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);*/
@@ -34,22 +34,14 @@ main h2 {
     padding: 10px;
     width: 650px;
     border-radius: 0px;
-    
-}
 
-header #logo {
-    position: relative;
-    width:90px;
-    height:90px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-    
 }
 
 #logo2 {
     width: 90px;
     height: 90px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-    }
+}
 
 .nav {
     padding-left: 500px;
@@ -74,6 +66,26 @@ article p {
     margin-left: 35px;
 }
 
+#M {
+    background-color: #2ECC40;
+}
+
+#HM {
+    background-color: #39CCCC;
+}
+
+#UM {
+    background-color: #B10DC9;
+}
+
+#NM {
+    background-color: #FFDC00;
+}
+
+#N {
+    background-color: #85144b;
+}
+
 footer {
     border-top: 1px solid black;
     padding: 1em 2em 3em 1em;
@@ -94,13 +106,13 @@ footer #logo {
     bottom: -205px;
     width: 80px;
     height: 80px;
-    }
+}
 
 footer {
-        border-top: 1px solid black;
-        padding: 1em 2em 3em 1em;
-    }
+    border-top: 1px solid black;
+    padding: 1em 2em 3em 1em;
+}
 
 footer .next {
-        float: right;
-    }
+    float: right;
+}
