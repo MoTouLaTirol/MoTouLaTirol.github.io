@@ -176,9 +176,12 @@ async function loadMoore(url) {
         }
 
     }).bindPopup(function (layer) {
-        console.log(layer.feature.properties)
         let prop = layer.feature.properties;
-        return `<h3>${prop.KG_NAME}</h3>`
+        return `<h3>Ort: ${prop.KG_NAME}</h3>
+        <hr>
+        <strong>Bodentyp:</strong> ${prop.BODENTYP}
+        <br><strong>Zustand:</strong> ${prop.ZUSTAND}
+        <br><strong>Wasserstufe:</strong> ${prop.WASSERSTUF}`
     }).addTo(map);
 }
 
