@@ -168,7 +168,7 @@ async function loadMoore(url) {
     let geojson = await response.json();
     //console.log(geojson);
 
-    let moore = L.geoJSON(geojson, {
+    L.geoJSON(geojson, {
         style: function (feature) {
             return {
                 color: "#F012BE"

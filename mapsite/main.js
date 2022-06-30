@@ -131,4 +131,4 @@ async function loadMoore(url) {
 }
 
 
-loadMoore("moordaten.json")
+loadMoore("../data/moordaten.json")
